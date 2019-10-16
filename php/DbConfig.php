@@ -7,9 +7,9 @@ if ($local==1){
     $basededatos="quiz";
 }
 else{
-    $server="localhost";
-    $user="";
-    $pass="";
-    $basededatos="";
+    $server="localhost:3306";
+    $user="id10865980_alexymireia";
+    $pass="alexymireia";
+    $basededatos="id10865980_quiz";
 }
 ?>
