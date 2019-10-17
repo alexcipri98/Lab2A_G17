@@ -5,18 +5,19 @@
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
+    <?php include '../php/Dbconfig.php'?>;
+
   <section class="main" id="s1">
     <div>
 
       <?php
-  		  	require_once('Dbconfig.php');
     		$conexion = mysqli_connect($server, $user, $pass, $basededatos);
 
     		if(!$conexion){
     			die("Connection failed: " . mysqli_connect_error());
     		}
       
-      		$consultaPregunta = mysqli_query($conexion, "SELECT email, enunciado, respuestaC FROM preguntas");
+      		$consultaPregunta = mysqli_query($conexion, "SELECT email, enunciado, respuestaC FROM Preguntas");
       		$rawdata=array();
       		$i=0;
       		

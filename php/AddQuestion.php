@@ -5,10 +5,11 @@
 </head>
 <body>
   <?php include '../php/Menus.php' ?>
+  <?php include '../php/Dbconfig.php'?>;
+
   <section class="main" id="s1">
   	<div>
   		<?php
-  		require_once('Dbconfig.php');
     	$conexion = mysqli_connect($server, $user, $pass, $basededatos);
 
     	if(!$conexion){
@@ -27,7 +28,7 @@
     		$tema = $_POST['tema'];
 
 
-    		$sql = "INSERT INTO preguntas(clave, email, enunciado, respuestaC, respuesta1, respuesta2, respuesta3, complejidad, tema) VALUES (NULL, '$email', '$enunciado', '$respC', '$respuesta1', '$respuesta2', '$respuesta3', '$dificultad', '$tema')";
+    		$sql = "INSERT INTO Preguntas(clave, email, enunciado, respuestaC, respuesta1, respuesta2, respuesta3, complejidad, tema) VALUES (NULL, '$email', '$enunciado', '$respC', '$respuesta1', '$respuesta2', '$respuesta3', '$dificultad', '$tema')";
 
     		if(mysqli_query($conexion, $sql)){
     			echo "New record created successfully <br><br>";
