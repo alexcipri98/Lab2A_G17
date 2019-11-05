@@ -4,7 +4,7 @@
   <?php include '../html/Head.html'?>
 </head>
 <body>
-	  <?php include '../php/Dbconfig.php'?>;
+	  <?php include '../php/DbConfig.php'?>;
 
   <?php include '../php/Menus.php' ?>
   <script src="../js/jquery-3.4.1.min.js"></script>
@@ -23,27 +23,24 @@
         Repetir contraseña: <input type=password name="password2" id="password2"><br><br>
    	 <input name=btnLogA type=submit id="enviar" value="Enviar" >
 	</form>
-    </div>
-    </section>
+    <?php
+      if(isset($_POST['btnLogA'])){
 
-    	<?php
-    	if(isset($_POST['btnLogA'])){
+      $conexion = mysqli_connect($server, $user, $pass, $basededatos);
 
-    	$conexion = mysqli_connect($server, $user, $pass, $basededatos);
-
-    	if(!$conexion){
-    		die("Connection failed: " . mysqli_connect_error());
-    	}
-    	
-    		$tipo=$_POST['tipo'];
-       		$email = $_POST['email'];
-       		$nombre = $_POST['nombre'];
-    		$contraseña = $_POST['password'];
-    		$contraseña1 = $_POST['password2'];
+      if(!$conexion){
+        die("Connection failed: " . mysqli_connect_error());
+      }
+      
+        $tipo=$_POST['tipo'];
+          $email = $_POST['email'];
+          $nombre = $_POST['nombre'];
+        $contraseña = $_POST['password'];
+        $contraseña1 = $_POST['password2'];
 
         if(strlen($contraseña)<6){
 
-			 echo "<script> alert('contraseña demasiado corta')</script>";
+       echo "<script> alert('contraseña demasiado corta')</script>";
              die('contraseña demasiado corta <br><br>');
         
         }
@@ -51,20 +48,22 @@
            echo "<script> alert('Las contraseñas no coinciden')</script>";
            die('Las contraseñas no coinciden<br><br>');
         }
-       		echo "Connected succesfully <br><br>";
-    	
-    		$sql = "INSERT INTO Usuarios(tipo, email, nombre, password) VALUES ('$tipo', '$email', '$nombre', '$contraseña')";
+          echo "<br><br>";
+      
+        $sql = "INSERT INTO Usuarios(tipo, email, nombre, password) VALUES ('$tipo', '$email', '$nombre', '$contraseña')";
 
-    		if(mysqli_query($conexion, $sql)){
-    			echo "New record created successfully <br><br>";
-    		} 
-    		else {
-    			echo "ERROR: " . $sql . "<br>" . mysqli_error($conexion);
-    		}
-    		mysqli_close($conexion);
-    	}
-    		?>
+        if(mysqli_query($conexion, $sql)){
+          echo "new record created";
+        } 
+        else {
+          echo "ERROR: " . $sql . "<br>" . mysqli_error($conexion);
+        }
+        mysqli_close($conexion);
+      }
+        ?>
 
+    </div>
+    </section>
   <?php include '../html/Footer.html' ?>
 </body>
 </html>

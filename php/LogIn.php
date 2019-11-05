@@ -4,16 +4,16 @@
   <?php include '../html/Head.html'?>
 </head>
 <body>
-	 <?php include '../php/DbConfig.php'?>;
+   <?php include '../php/DbConfig.php'?>;
   <?php include '../php/Menus.php' ?>
  <section class="main" id="s1">
   <div>
       <h2>HAZ LOGIN!!</h2><br>
       <form id='Ssignup' name='Ssignup' method='post'>
-      	Email: <input type=text name="email" id="email" autofocus placeholder="ejemplo000@ikasle.ehu.eus"><br><br>
+        Email: <input type=text name="email" id="email" autofocus placeholder="ejemplo000@ikasle.ehu.eus"><br><br>
         Contraseña: <input type=password name="password" id="password"><br><br>
-   	 <input name=btnLogA type=submit id="enviar" value="Enviar" >
-	</form>
+     <input name=btnLogA type=submit id="enviar" value="Enviar" >
+  </form>
     </div>
     </section>
     <?php
@@ -26,7 +26,7 @@
         }
         $email=$_POST['email'];
         $password1=$_POST['password'];
-        $consultaPregunta = mysqli_query($conexion, "SELECT * FROM usuarios WHERE email='$email'");
+        $consultaPregunta = mysqli_query($conexion, "SELECT * FROM Usuarios WHERE email='$email'");
         $row=mysqli_fetch_array($consultaPregunta);
         $contraseña=$row['password'];
         if($email==""){

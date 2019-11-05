@@ -15,6 +15,8 @@ echo"
   <span><a href='Layout.php?email=$email'>Inicio</a></span>
   <span><a href='QuestionForm.php?email=$email'> Insertar Pregunta</a></span>
   <span><a href='Credits.php?email=$email'>Creditos</a></span>
+    <span><a href='ShowXmlQuestions.php?email=$email'>ShowXmlQuestions</a></span>
+     <span><a href='ShowQuestions.php?email=$email'>ShowQuestions</a></span>
 </nav>";
 }
 else{

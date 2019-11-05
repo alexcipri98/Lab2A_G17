@@ -27,11 +27,6 @@ $(document).ready(function() {
             alert('Asegurate de que has puesto un nombre y al menos un apellido');
             return false;
         }
-        if($("#nombre").val().length < 10){
-            alert('enunciado incompleto');
-            return false;
-        }
-        
         return true;
          });
     });
