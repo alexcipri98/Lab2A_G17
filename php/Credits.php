@@ -13,7 +13,7 @@
       <h3>Mireia Galán Prieto</h3><br>
       <h3>Ingeniería del software</h3><br>
       <img src="../images/nosotros.jpg"><br>
-      <a href="mailto:aciprian001@ikasle.ehu.eus">Email de Alex</a><br>
+      <a href="mailto:aciprianlopez@gmail.com">Email de Alex</a><br>
       <a href="mailto:mgalan012@ikasle.ehu.eus">Email de Mireia</a>
 
 
