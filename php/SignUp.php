@@ -9,6 +9,8 @@
   <?php include '../php/Menus.php' ?>
   <script src="../js/jquery-3.4.1.min.js"></script>
   <script src="../js/ValidateSignUp.js"></script>
+  <script src="../js/SinginAjax.js"></script>
+  <script src="../js/SingpassAjax.js"></script>
   <section class="main" id="s1">
   <div>
       <h2>Registrate!!</h2><br>
@@ -17,9 +19,10 @@
 			<option value="1">Alumno</option>
 			<option value="2">Profesor</option>
 		</select><br><br>
-      	Email: <input type=text name="email" id="email" autofocus placeholder="ejemplo000@ikasle.ehu.eus"><br><br>
+      	Email: <input type=text name="email" id="email" autofocus placeholder="ejemplo000@ikasle.ehu.eus"><div id='mss'></div><br><br>
       	Nombre y Apellido/s: <input type=text name="nombre" id="nombre"><br><br>
         Contraseña: <input type=password name="password" id="password"><br><br>
+        <div id='mss2'></div>
         Repetir contraseña: <input type=password name="password2" id="password2"><br><br>
    	 <input name=btnLogA type=submit id="enviar" value="Enviar" >
 	</form>
@@ -33,8 +36,8 @@
       }
       
         $tipo=$_POST['tipo'];
-          $email = $_POST['email'];
-          $nombre = $_POST['nombre'];
+        $email = $_POST['email'];
+        $nombre = $_POST['nombre'];
         $contraseña = $_POST['password'];
         $contraseña1 = $_POST['password2'];
 
