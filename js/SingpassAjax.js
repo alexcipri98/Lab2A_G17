@@ -6,13 +6,15 @@ $(document).ready(function () {
                                 type: 'get',
                                 url: '../php/ClientVerifyPass.php?password='+$password+'&ticket='+$ticket,
                                 success:function(data){
-                                   if(data=="NO"){
-                                    $('#mss2').html('No es una contraseña válida');
-                                    $('#enviar').attr("disabled",true);
+                                   if(data=="VALIDA"){
+                                        $('#mss2').html('Es una contraseña válida');
+                                        $('#enviar').attr("disabled",false);
                                     }
                                     else{
-                                    $('#mss2').html('Es una contraseña válida');
-                                    }
+                                        $('#mss2').html('No es una contraseña válida');
+                                        $('#enviar').attr("disabled",true);
+                                   }
+                                  
                                 },
                                 cache:false,
                                 error:function(){
