@@ -24,7 +24,7 @@
         Contraseña: <input type=password name="password" id="password"><br><br>
         <div id='mss2'></div>
         Repetir contraseña: <input type=password name="password2" id="password2"><br><br>
-   	 <input name=btnLogA type=submit id="enviar" value="Enviar" >
+   	 <input name=btnLogA type=submit id="enviar" value="Enviar" disabled=true >
 	</form>
     <?php
       if(isset($_POST['btnLogA'])){
@@ -40,6 +40,7 @@
         $nombre = $_POST['nombre'];
         $contraseña = $_POST['password'];
         $contraseña1 = $_POST['password2'];
+        $estado="activo";
 
         if(strlen($contraseña)<6){
 
@@ -53,7 +54,7 @@
         }
           echo "<br><br>";
       
-        $sql = "INSERT INTO Usuarios(tipo, email, nombre, password) VALUES ('$tipo', '$email', '$nombre', '$contraseña')";
+        $sql = "INSERT INTO Usuarios(tipo, email, nombre, password, estado) VALUES ('$tipo', '$email', '$nombre', '$contraseña', '$estado')";
 
         if(mysqli_query($conexion, $sql)){
           echo "new record created";

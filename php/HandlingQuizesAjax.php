@@ -1,5 +1,19 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
+<?php
+if($_SESSION['autentificacion']=="si"){
+}
+else{
+  echo"<script> alert('Debe hacer login primero');
+                         
+                          window.location.href='../php/LogIn.php?<?=SID?>';
+                </script>";
+}
+
+?>
 <head>
   <?php include '../html/Head.html'?>
 </head>
@@ -16,7 +30,7 @@
   <div id="formulario">
       <form id='fquestion' name='fquestion' method='post'>
         <?php
-        $val=$_GET['email'];
+        $val=$_SESSION['email'];
         echo"Email: <input type=text name='email' id='email' value='$val'><br><br>";
         ?>
         Inserte el enunciado: <input type=text name="enunciado" id="enunciado"><br><br>

@@ -14,8 +14,6 @@ $(document).ready(function () {
                                     }
                                     if(data=="SI"){
                                     $('#mss').html('Es un email VIP');
-                                    $('#enviar').attr("disabled",false);
-
                                     }
                                 },
                                 cache:false,

@@ -1,3 +1,6 @@
+<?php 
+		session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,6 +9,9 @@
 <body>
 	 <?php include '../php/DbConfig.php'?>;
   <?php include '../php/Menus.php' ?>
+  <?php
+ 	session_destroy ();
+  ?>
   <script>
   alert('Hasta pronto, te esperamos, click en aceptar para finalizar!');
 	window.location.href="../php/Layout.php";

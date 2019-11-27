@@ -1,3 +1,6 @@
+<?php 
+    session_start();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -29,20 +32,29 @@
         $consultaPregunta = mysqli_query($conexion, "SELECT * FROM Usuarios WHERE email='$email'");
         $row=mysqli_fetch_array($consultaPregunta);
         $contraseña=$row['password'];
+        $estado=$row['estado'];
+
         if($email==""){
           echo "<script> alert('los datos introducidos no son correctos') </script>";
           die('datos incorrectos<br><br>');
         }
         if($contraseña==$password1){
+          if($estado=='bloqueado'){
+            echo "<script> alert('Usted ha sido bloqueado') </script>";
+            die('Usuario bloqueado<br><br>');
+          }
+				$_SESSION['email'] = $email;
+				$_SESSION['autentificacion']="si";
           echo "<script> alert('Bien venido, click en aceptar para continuar!');
-                          window.location.href='../php/Layout.php?email=$email';
+                         
+                          window.location.href='../php/Layout.php';
                 </script>";
         }
        else{
           echo "<script> alert('los datos introducidos no son correctos') </script>";
           die('datos incorrectos<br><br>');
         }
-
+        
       }
       ?>
   </body>
