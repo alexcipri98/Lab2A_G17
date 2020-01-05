@@ -4,12 +4,15 @@
 <!DOCTYPE html>
 <html>
 <?php
-if($_SESSION['autentificacion']=="si"){
-}
-else{
-  echo"<script> alert('Debe hacer login primero');
-                         
+if($_SESSION['autentificacion']!='si'){
+	echo"<script> alert('Debe hacer login primero');
                           window.location.href='../php/LogIn.php?<?=SID?>';
+                </script>";
+}
+if($_SESSION['email']!='admin@ehu.es'){
+  				echo"<script> alert('Usted no es un usuario administrador');
+                         
+                          window.location.href='../php/HandlingQuizesAjax.php?<?=SID?>';
                 </script>";
 }
 ?>
@@ -76,7 +79,8 @@ else{
       <script>
       function modifica(email,estado){
         if(email=='admin@ehu.es'){
-          var resultado=confirm("¿Seguro que deseas modificar a un usuario ADMINISTRADOR?")
+    		alert("Este usuario no puede ser bloqueado, es un usuario ADMINISTRADOR");
+       		var resultado=false;
         }else{
           var resultado=confirm("¿Seguro que deseas modificar a este usuario?");
         }
@@ -87,7 +91,8 @@ else{
       	}
       function elimina(email){
        if(email=='admin@ehu.es'){
-          var resultado=confirm("¿Seguro que deseas eliminar a un usuario ADMINISTRADOR?")
+       		alert("Este usuario no puede ser eliminado, es un usuario ADMINISTRADOR");
+       		var resultado=false;
         }else{
           var resultado=confirm("¿Seguro que deseas eliminar a este usuario?");
         }        

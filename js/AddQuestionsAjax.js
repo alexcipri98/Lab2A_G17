@@ -36,13 +36,22 @@ $(document).ready(function() {
             alert('respuesta4 vacia');
             return false;
          }
-    		var f= $('#fquestion').serialize();
+         var aux=$("#image").val();
+         if(aux.length==0){
+            alert('Debe añadir una imagen');
+            return false;
+         }
+         var f= new FormData($("#fquestion")[0]);
     		$.ajax({
     			type: 'post',
+          enctype: 'multipart/form-data',
     			url: '../php/AddQuestion.php',
     			data:f,
+          processData: false,
+          contentType: false,
     			success:function(){
     				$('#visualizar').load('../php/ShowTable.php');
+            $('#tabla').load('../php/ShowT.php?');
     			},
     			cache:false,
     			error:function(){

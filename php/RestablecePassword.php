@@ -11,13 +11,11 @@
   <?php include '../php/Menus.php' ?>
  <section class="main" id="s1">
   <div>
-      <h2>HAZ LOGIN!!</h2><br>
+      <h2>Inserte su correo electrónico</h2><br>
       <form id='Ssignup' name='Ssignup' method='post'>
         Email: <input type=text name="email" id="email" autofocus placeholder="ejemplo000@ikasle.ehu.eus"><br><br>
-          Contraseña: <input type=password name="password" id="password"><br><br>
      <input name=btnLogA type=submit id="enviar" value="Enviar" ><br><br>
   </form>
-    <a href="../php/RestablecePassword.php">¿Ha olvidado su contraseña?</a>
     </div>
     </section>
     <?php
@@ -29,27 +27,20 @@
           die("Connection failed: " . mysqli_connect_error());
         }
         $email=$_POST['email'];
-        $password1=crypt($_POST['password'],'st');
         $consultaPregunta = mysqli_query($conexion, "SELECT * FROM Usuarios WHERE email='$email'");
         $row=mysqli_fetch_array($consultaPregunta);
         $contraseña=$row['password'];
         $estado=$row['estado'];
-
         if($email==""){
-          echo "<script> alert('los datos introducidos no son correctos') </script>";
+          echo "<script> alert('Por favor asegurese de que ha añadido un email') </script>";
           die('datos incorrectos<br><br>');
         }
-        if($contraseña==$password1){
+        if($contraseña!=""){
           if($estado=='bloqueado'){
             echo "<script> alert('Usted ha sido bloqueado') </script>";
             die('Usuario bloqueado<br><br>');
           }
-				$_SESSION['email'] = $email;
-				$_SESSION['autentificacion']="si";
-          echo "<script> alert('Bien venido, click en aceptar para continuar!');
-                         
-                          window.location.href='../php/Layout.php';
-                </script>";
+          mail($email,"Restablecimiento de password","probando");
         }
        else{
           echo "<script> alert('los datos introducidos no son correctos') </script>";

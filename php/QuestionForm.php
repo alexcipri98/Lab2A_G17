@@ -30,6 +30,7 @@
       <option value="3">Alta</option>
     </select><br><br>
     Tema de la pregunta <input type="text" name= "tema" id="tema"><br><br>
+    Imagen de la pregunta<input type='file' id='image' name='image'><br><br>
     <input type=submit id="enviar" value="Enviar" >
     </form>
 

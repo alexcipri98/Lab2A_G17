@@ -26,14 +26,11 @@
     		$respuesta3 = $_POST['resp4'];
     		$dificultad = $_POST['dificultad'];
     		$tema = $_POST['tema'];
+        $im=addslashes(file_get_contents($_FILES['image']['tmp_name']));
+        move_uploaded_file($im, $_FILES['image']['name']);
     		?>
 
 <?php
-
-        // var str=$email;
-         //var val=str.match(/[a-z]+[0-9]{3}@+(ikasle\.ehu\.eus|ikasle\.ehu\.es)/);
-         //var vol=str.match(/([a-z]{2}\.[a-z]|[a-z])@+(ehu\.eus|ehu\.es)/);
-
          if(preg_match("/[a-z]+[0-9]{3}@+(ikasle\.ehu\.eus|ikasle\.ehu\.es)/",$email)==null && preg_match("/([a-z]{2}\.[a-z]|[a-z])@+(ehu\.eus|ehu\.es)/",$email)==null){
          	            echo "<script> alert('email incorrecto')</script>";
          	            die('Email incorrecto <br><br>
@@ -46,8 +43,6 @@
 								</script>');
 
          }
-        
-
 
         if(strlen($enunciado)< 10){
             echo "<script> alert('enunciado incompleto')</script>";
@@ -124,10 +119,41 @@
 								}
 								</script>');
          }
+         if(strlen($im)==0){
+           echo "<script> alert('No ha insertado ninguna imagen')</script>";
+                          die('Inserte alguna imagen <br><br>
+                       <button onclick="goBack()">Go Back</button>
+
+                <script>
+                function goBack() {
+                  window.history.back();
+                }
+                </script>');
+         }
+      /*    if(strlen($imagen) ==0){
+            echo "<script> alert('imagen incompleto')</script>";
+                          die('imagen incompleto <br><br>
+                       <button onclick="goBack()">Go Back</button>
+
+                <script>
+                function goBack() {
+                  window.history.back();
+                }
+                </script>');
+         }*/
 
     ?>
 
     <?php
+    $sql = "INSERT INTO Preguntas(clave, email, enunciado, respuestaC, respuesta1, respuesta2, respuesta3, complejidad, tema, contenido_imagen) VALUES (NULL, '$email', '$enunciado', '$respC', '$respuesta1', '$respuesta2', '$respuesta3', '$dificultad', '$tema', '$im')";
+    if(mysqli_query($conexion, $sql)){
+          
+    } 
+    else {
+      echo "ERROR: " . $sql . "<br>" . mysqli_error($conexion);
+    }
+    mysqli_close($conexion);
+
     $xml=simplexml_load_file('../xml/Questions.xml');
     $assessmentItem = $xml->addChild('assessmentItem');
     $assessmentItem ->addAttribute('author',$email);
@@ -140,19 +166,10 @@
     $incorrectResponse->addChild('value',$respuesta1);
     $incorrectResponse->addChild('value',$respuesta2);
     $incorrectResponse->addChild('value',$respuesta3);
+    $foto=$assessmentItem ->addChild('imagen');
+   // $foto->addChild('value',$imagen);
     $xml->asXML('../xml/Questions.xml');
-    ?>
-    <?php
-    		echo "Connected succesfully <br><br>";
-    		$sql = "INSERT INTO Preguntas(clave, email, enunciado, respuestaC, respuesta1, respuesta2, respuesta3, complejidad, tema) VALUES (NULL, '$email', '$enunciado', '$respC', '$respuesta1', '$respuesta2', '$respuesta3', '$dificultad', '$tema')";
-          echo 'respuesta insertada correctamente';
-    		if(mysqli_query($conexion, $sql)){
-    			
-    		} 
-    		else {
-    			echo "ERROR: " . $sql . "<br>" . mysqli_error($conexion);
-    		}
-    		mysqli_close($conexion);
+   
     	?>
     </div>
   </section>

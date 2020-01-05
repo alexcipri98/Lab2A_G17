@@ -38,8 +38,8 @@
         $tipo=$_POST['tipo'];
         $email = $_POST['email'];
         $nombre = $_POST['nombre'];
-        $contraseña = $_POST['password'];
-        $contraseña1 = $_POST['password2'];
+        $contraseña = crypt($_POST['password'],'st');
+        $contraseña1 = crypt($_POST['password2'],'st');
         $estado="activo";
 
         if(strlen($contraseña)<6){

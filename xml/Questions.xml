@@ -1,34 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <assessmentItems>
-	<assessmentItem subject="Web" author="jvadillo001@ikasle.ehu.eus">
-		<itemBody>
-			<p>Tag HTML para añadir un formulario</p>
-		</itemBody>
-		<correctResponse>
-			<value>
-				FORM
-			</value>
-		</correctResponse>
-		<incorrectResponses>
-			<value> OBJECT </value>
-			<value> TABLE </value>
-			<value> DIV </value>
-		</incorrectResponses>
-	</assessmentItem>
-		<assessmentItem subject="Internet" author="rarruabarrena001@ikasle.ehu.eus">
-		<itemBody>
-			<p>Este protocolo acabará funcionando
-			incluso entre dos latas unidas por un cordón</p>
-		</itemBody>
-		<correctResponse>
-			<value>
-				TCP/IP
-			</value>
-		</correctResponse>
-		<incorrectResponses>
-			<value> HTTP </value>
-			<value> SMTP </value>
-			<value> Ninguna es correcta </value>
-		</incorrectResponses>
-	</assessmentItem>
-<assessmentItem author="aciprian001@ikasle.ehu.eus" subject=""><itemBody><p>¿Funcionará esta prueba?</p></itemBody><correctResponse><value>Si</value></correctResponse><incorrectResponse><value>no sé yo</value><value>No</value><value>100% que si</value></incorrectResponse></assessmentItem><assessmentItem author="aciprian001@ikasle.ehu.eus" subject=""><itemBody><p>kjgddxkgedkjgekjed</p></itemBody><correctResponse><value>fgcfcfc</value></correctResponse><incorrectResponse><value>cfcfc</value><value>cffcf</value><value>fcfcf</value></incorrectResponse></assessmentItem><assessmentItem author="aciprian001@ikasle.ehu.eus" subject=""><itemBody><p>pruebalab7</p></itemBody><correctResponse><value>ira bien</value></correctResponse><incorrectResponse><value>no irá</value><value>irá genial</value><value>oioi</value></incorrectResponse></assessmentItem></assessmentItems>
+<assessmentItem author="aciprian001@ikasle.ehu.eus" subject=""><itemBody><p>Esto no es más que una prueba</p></itemBody><correctResponse><value>Veremos</value></correctResponse><incorrectResponse><value>lo</value><value>que</value><value>hay</value></incorrectResponse><imagen/></assessmentItem><assessmentItem author="mgalan012@ikasle.ehu.eus" subject=""><itemBody><p>Otra prueba más</p></itemBody><correctResponse><value>funciona:)</value></correctResponse><incorrectResponse><value>no</value><value>no</value><value>no</value></incorrectResponse><imagen/></assessmentItem></assessmentItems>
